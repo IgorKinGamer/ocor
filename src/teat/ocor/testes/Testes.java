@@ -9,6 +9,6 @@ public class Testes
 	@Test
 	public void umTeste()
 	{
-		assert(true);
+		assertTrue(true);
 	}
 }
