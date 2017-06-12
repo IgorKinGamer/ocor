@@ -3,10 +3,12 @@ package teat.ocor;
 public class Funcionário
 {
 	private String nome;
+	private int id;
 	
-	public Funcionário(int i, String nome)
+	public Funcionário(int id, String nome)
 	{
 		this.nome = nome;
+		this.id = id;
 	}
 
 	public String nome()
@@ -16,8 +18,14 @@ public class Funcionário
 
 	public int identificador()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return id;
 	}
-
+	
+	@Override
+	public boolean equals(Object outro)
+	{
+		return outro instanceof Funcionário
+				&& nome.equals(((Funcionário) outro).nome)
+				&& id == ((Funcionário) outro).id;
+	}
 }

@@ -17,4 +17,27 @@ public class TestesCadastroFuncionário
 		Collection<Funcionário> funcionários = gerenciador.pegarFuncionários();
 		assertEquals(0, funcionários.size());
 	}
+	
+	@Test
+	public void cadastrarJosé()
+	{
+		Gerenciador gerenciador = new Gerenciador();
+		Collection<Funcionário> funcionários = gerenciador.pegarFuncionários();
+		
+		gerenciador.cadastrarFuncionário(1, "José");
+		
+		assertEquals(1, funcionários.size());
+		assertEquals(new Funcionário(1, "José"), funcionários.iterator().next());
+	}
+	
+	@Test
+	public void buscarFuncionárioPorId()
+	{
+		Gerenciador gerenciador = new Gerenciador();
+		
+		gerenciador.cadastrarFuncionário(1, "José");
+		
+		assertEquals(new Funcionário(1, "José"), gerenciador.buscarFuncionário(1));
+		assertEquals(null, gerenciador.buscarFuncionário(2));
+	}
 }
