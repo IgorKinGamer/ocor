@@ -4,29 +4,26 @@ import java.util.*;
 
 public class Gerenciador
 {
-	private List<Funcionário> funcionários;
+	private Map<Integer, Funcionário> funcionários;
 	
 	public Gerenciador()
 	{
-		funcionários = new LinkedList<>();
+		funcionários = new HashMap<>();
 	}
 	
 	public Collection<Funcionário> pegarFuncionários()
 	{
-		return funcionários;
+		return funcionários.values();
 	}
 
 	public void cadastrarFuncionário(int id, String nome)
 	{
-		funcionários.add(new Funcionário(id, nome));
+		funcionários.put(id, new Funcionário(id, nome));
 	}
 
 	public Funcionário buscarFuncionário(int id)
 	{
-		for (Funcionário f : funcionários)
-			if (f.identificador() == id)
-				return f;
-		return null;
+		return funcionários.get(id);
 	}
 
 }
