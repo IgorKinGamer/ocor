@@ -40,4 +40,13 @@ public class TestesCadastroFuncionário
 		assertEquals(new Funcionário(1, "José"), gerenciador.buscarFuncionário(1));
 		assertEquals(null, gerenciador.buscarFuncionário(2));
 	}
+	
+	@Test (expected = ExceçãoIdRepetido.class)
+	public void cadastrarFuncionárioComIdRepetido()
+	{
+		Gerenciador gerenciador = new Gerenciador();
+		
+		gerenciador.cadastrarFuncionário(1, "José");
+		gerenciador.cadastrarFuncionário(1, "João");
+	}
 }
