@@ -4,11 +4,11 @@ import java.util.*;
 
 import teat.ocor.testes.*;
 
-public class Gerenciador
+public class GerenciadorFuncionários
 {
 	private Map<Integer, Funcionário> funcionários;
 	
-	public Gerenciador()
+	public GerenciadorFuncionários()
 	{
 		funcionários = new HashMap<>();
 	}

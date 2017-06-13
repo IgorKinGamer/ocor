@@ -10,12 +10,12 @@ import teat.ocor.*;
 
 public class TestesCadastroFuncionário
 {
-	Gerenciador gerenciador;
+	GerenciadorFuncionários gerenciador;
 	
 	@Before
 	public void criarGerenciador()
 	{
-		gerenciador = new Gerenciador();
+		gerenciador = new GerenciadorFuncionários();
 	}
 	
 	@Test
