@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-import teat.ocor.*;
+import teat.ocor.func.*;
 
 public class TestesFuncionário
 {

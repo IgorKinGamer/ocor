@@ -6,7 +6,8 @@ import java.util.*;
 
 import org.junit.*;
 
-import teat.ocor.*;
+import teat.ocor.exc.*;
+import teat.ocor.func.*;
 
 public class TestesCadastroFuncionário
 {

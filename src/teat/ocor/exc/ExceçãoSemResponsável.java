@@ -1,4 +1,4 @@
-package teat.ocor.testes;
+package teat.ocor.exc;
 
 @SuppressWarnings("serial")
 public class ExceçãoSemResponsável extends RuntimeException

@@ -1,4 +1,6 @@
-package teat.ocor;
+package teat.ocor.ocor;
+
+import teat.ocor.func.*;
 
 public abstract class Ocorrência
 {

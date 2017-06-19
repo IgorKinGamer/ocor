@@ -1,13 +1,15 @@
 package teat.ocor.testes;
 
 import static org.junit.Assert.*;
-import static teat.ocor.Ocorrência.Estado.*;
-import static teat.ocor.Ocorrência.Prioridade.*;
-import static teat.ocor.Ocorrência.Tipo.*;
+import static teat.ocor.ocor.Ocorrência.Estado.*;
+import static teat.ocor.ocor.Ocorrência.Prioridade.*;
+import static teat.ocor.ocor.Ocorrência.Tipo.*;
 
 import org.junit.*;
 
-import teat.ocor.*;
+import teat.ocor.exc.*;
+import teat.ocor.func.*;
+import teat.ocor.ocor.*;
 
 public class TestesOcorrências
 {

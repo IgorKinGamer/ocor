@@ -1,6 +1,7 @@
-package teat.ocor;
+package teat.ocor.ocor;
 
-import teat.ocor.testes.*;
+import teat.ocor.exc.*;
+import teat.ocor.func.*;
 
 public class OcorrênciaEditável extends Ocorrência
 {

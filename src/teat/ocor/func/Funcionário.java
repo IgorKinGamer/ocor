@@ -1,4 +1,4 @@
-package teat.ocor;
+package teat.ocor.func;
 
 public class Funcionário
 {

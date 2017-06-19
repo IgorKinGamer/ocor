@@ -1,6 +1,6 @@
-package teat.ocor;
+package teat.ocor.proj;
 
-import teat.ocor.testes.*;
+import teat.ocor.exc.*;
 
 public class Projeto
 {

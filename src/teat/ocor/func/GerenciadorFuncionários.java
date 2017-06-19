@@ -1,8 +1,8 @@
-package teat.ocor;
+package teat.ocor.func;
 
 import java.util.*;
 
-import teat.ocor.testes.*;
+import teat.ocor.exc.*;
 
 public class GerenciadorFuncionários
 {

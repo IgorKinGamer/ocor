@@ -4,7 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-import teat.ocor.*;
+import teat.ocor.exc.*;
+import teat.ocor.proj.*;
 
 public class TestesProjeto
 {
