@@ -20,9 +20,9 @@ public class GerenciadorFuncionários
 
 	public void cadastrarFuncionário(int id, String nome)
 	{
-		Funcionário anterior = funcionários.put(id, new Funcionário(id, nome));
-		if (anterior != null)
+		if (funcionários.containsKey(id))
 			throw new ExceçãoIdRepetido();
+		funcionários.put(id, new Funcionário(id, nome));
 	}
 
 	public Funcionário buscarFuncionário(int id)
