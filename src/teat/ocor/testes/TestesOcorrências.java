@@ -10,6 +10,7 @@ import org.junit.*;
 import teat.ocor.exc.*;
 import teat.ocor.func.*;
 import teat.ocor.ocor.*;
+import teat.ocor.proj.*;
 
 public class TestesOcorrências
 {
@@ -20,23 +21,28 @@ public class TestesOcorrências
 	public void criarOcorrência()
 	{
 		descrição = "Conexão bluetooth para a comunicação entre celular e aparelho";
-		ocorrência = new OcorrênciaEditável("Conexão bluetooth", descrição,
+		ocorrência = new OcorrênciaEditável(1, "Conexão bluetooth", descrição,
 				TAREFA, ALTA);
 	}
 	
 	@Test
 	public void ocorrênciaCriada()
 	{
+		assertEquals(1, ocorrência.chave());
 		assertEquals("Conexão bluetooth", ocorrência.nome());
 		assertEquals(descrição, ocorrência.descrição());
 		assertEquals(TAREFA, ocorrência.tipo());
 		assertEquals(ALTA, ocorrência.prioridade());
 		assertEquals(ABERTA, ocorrência.estado());
+		assertEquals(null, ocorrência.responsável());
+		assertEquals(null, ocorrência.projeto());
 	}
 	
 	@Test
 	public void ocorrênciaCompletada()
 	{
+		Projeto projeto = new Projeto("Controle Celular");
+		ocorrência.alterarProjeto(projeto);
 		Funcionário josé = new Funcionário(1, "José");
 		ocorrência.alterarResponsável(josé);
 		ocorrência.completar();
@@ -44,19 +50,11 @@ public class TestesOcorrências
 		assertEquals(COMPLETADA, ocorrência.estado());
 	}
 	
-	@Test (expected = ExceçãoSemResponsável.class)
-	public void completarSemResponsável()
-	{
-		ocorrência.completar();
-	}
-	
 	@Test
 	public void alterarResponsável()
 	{
 		Funcionário josé = new Funcionário(1, "José");
-		
 		ocorrência.alterarResponsável(josé);
-		
 		assertEquals(new Funcionário(1, "José"), ocorrência.responsável());
 	}
 	
@@ -67,9 +65,35 @@ public class TestesOcorrências
 		assertEquals(BAIXA, ocorrência.prioridade());
 	}
 	
+	@Test
+	public void alterarProjeto()
+	{
+		Projeto projeto = new Projeto("Controle Celular");
+		ocorrência.alterarProjeto(projeto);
+		assertEquals(projeto, ocorrência.projeto());
+	}
+	
+	@Test (expected = ExceçãoSemResponsávelOuProjeto.class)
+	public void completarSemResponsável()
+	{
+		Projeto projeto = new Projeto("Controle Celular");
+		ocorrência.alterarProjeto(projeto);
+		ocorrência.completar();
+	}
+	
+	@Test (expected = ExceçãoSemResponsávelOuProjeto.class)
+	public void completarSemProjeto()
+	{
+		Funcionário josé = new Funcionário(1, "José");
+		ocorrência.alterarResponsável(josé);
+		ocorrência.completar();
+	}
+	
 	@Test (expected = ExceçãoOcorrênciaCompletada.class)
 	public void alterarResponsávelDeCompletada()
 	{
+		Projeto projeto = new Projeto("Controle Celular");
+		ocorrência.alterarProjeto(projeto);
 		Funcionário josé, joão;
 		josé = new Funcionário(1, "José");
 		joão = new Funcionário(2, "João");
@@ -82,6 +106,8 @@ public class TestesOcorrências
 	@Test (expected = ExceçãoOcorrênciaCompletada.class)
 	public void alterarPrioridadeDeCompletada()
 	{
+		Projeto projeto = new Projeto("Controle Celular");
+		ocorrência.alterarProjeto(projeto);
 		Funcionário josé = new Funcionário(1, "José");
 		ocorrência.alterarResponsável(josé);
 		

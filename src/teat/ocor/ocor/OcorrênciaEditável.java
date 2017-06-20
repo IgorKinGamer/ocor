@@ -2,18 +2,19 @@ package teat.ocor.ocor;
 
 import teat.ocor.exc.*;
 import teat.ocor.func.*;
+import teat.ocor.proj.*;
 
 public class OcorrênciaEditável extends Ocorrência
 {
-	public OcorrênciaEditável(String nome, String descrição, Tipo tipo, Prioridade prioridade)
+	public OcorrênciaEditável(int chave, String nome, String descrição, Tipo tipo, Prioridade prioridade)
 	{
-		super(nome, descrição, tipo, prioridade);
+		super(chave, nome, descrição, tipo, prioridade);
 	}
 
 	public void completar()
 	{
-		if (responsável == null)
-			throw new ExceçãoSemResponsável();
+		if (responsável == null || projeto == null)
+			throw new ExceçãoSemResponsávelOuProjeto();
 		estado = Estado.COMPLETADA;
 	}
 
@@ -29,5 +30,10 @@ public class OcorrênciaEditável extends Ocorrência
 		if (estado == Estado.COMPLETADA)
 			throw new ExceçãoOcorrênciaCompletada();
 		this.prioridade = prioridade;
+	}
+
+	public void alterarProjeto(Projeto projeto)
+	{
+		this.projeto = projeto;
 	}
 }
